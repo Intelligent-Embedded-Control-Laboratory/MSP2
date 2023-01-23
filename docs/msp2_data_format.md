@@ -107,3 +107,4 @@ typedef struct msp_sensor_op_flow_t
 ## 參考資料
 
 - [对黑羊、Elrs 等使用的 crsf 协议的简单解析](https://blog.csdn.net/m0_63043961/article/details/128309223)
+- [](https://github.com/iNavFlight/inav/wiki/MSP-V2?fbclid=IwAR1CXIQyxRITDusTphtmWhrFMHMaAJVrx0M8sG1CT-xtaWzHEya_IbV3VlA)
