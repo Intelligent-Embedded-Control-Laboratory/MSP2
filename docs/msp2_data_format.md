@@ -103,3 +103,7 @@ typedef struct msp_sensor_op_flow_t
     int32_t motionY;
 } msp_sensor_op_flow_t; // total 9 bytes
 ```
+
+## 參考資料
+
+- [对黑羊、Elrs 等使用的 crsf 协议的简单解析](https://blog.csdn.net/m0_63043961/article/details/128309223)
