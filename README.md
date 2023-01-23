@@ -4,6 +4,8 @@ Since 2023-01-23
 
 ## How to use
 
+main.cpp
+
 ```cpp
 #include <Arduino.h>
 #include <msp2.h>
@@ -27,4 +29,11 @@ void loop()
         print_msp2_data(msp2);
     }
 }
+```
+
+platformIO.ini
+
+```clike
+lib_deps =
+    https://github.com/Intelligent-Embedded-Control-Laboratory/MSP2.git
 ```
