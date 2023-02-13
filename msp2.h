@@ -24,7 +24,7 @@ public:
     const msp_sensor_rangefinder_t &get_rangefinder() const { return rangefinder; }
     const msp_sensor_optical_flow_t &get_optic_flow() const { return optical_flow; }
 
-protected:
+// protected:
     HardwareSerial *MSPSerial;
     int8_t event_flag;
     enum MSP2_STATUS
