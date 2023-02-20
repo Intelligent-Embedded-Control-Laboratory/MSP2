@@ -43,17 +43,17 @@ void loop()
         }
 
         // msp2_print_all_data(msp2);
-        Serial.print(t_duration[0]);
-        Serial.print(" ");
-        Serial.print(msp2.get_rangefinder().distance_mm);
-        Serial.print(" ");
-        Serial.print(t_duration[1]);
-        Serial.print(" ");
-        Serial.print(msp2.get_optic_flow().motionDX);
-        Serial.print(" ");
-        Serial.print(msp2.get_optic_flow().motionDY);
-        Serial.println();
-        Serial.flush();
+        // Serial.print(t_duration[0]);
+        // Serial.print(" ");
+        // Serial.print(msp2.get_rangefinder().distance_mm);
+        // Serial.print(" ");
+        // Serial.print(t_duration[1]);
+        // Serial.print(" ");
+        // Serial.print(msp2.get_optic_flow().motionDX);
+        // Serial.print(" ");
+        // Serial.print(msp2.get_optic_flow().motionDY);
+        // Serial.println();
+        // Serial.flush();
     }
 }
 ```

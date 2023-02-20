@@ -23,17 +23,24 @@ uint16_t MSP2::read()
             if (header.start_bytes[1] == 0x58)
             {
                 MSPSerial->readBytes(&header.type, 6U);
-                Serial.println(header.payload_size);
-                event_flag = MSP2_WAIT_PACKET;
+                
+                if (header.payload_size > 9)
+                {
+                    Serial.printf("[MSP2 Fail]: payload_size = %d\n", header.payload_size);
+                }
+                else
+                {
+                    event_flag = MSP2_WAIT_PACKET;
+                }
             }
             else
             {
-                Serial.printf("[F]: start_byte[1] = %d\n", header.start_bytes[1]);
+                Serial.printf("[MSP2 Fail]: start_byte[1] = %d\n", header.start_bytes[1]);
             }
         }
         else
         {
-            Serial.printf("[F]: start_byte[0] = %d\n", header.start_bytes[0]);
+            Serial.printf("[MSP2 Fail]: start_byte[0] = %d\n", header.start_bytes[0]);
         }
     }
 
