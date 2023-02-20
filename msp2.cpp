@@ -23,9 +23,17 @@ uint16_t MSP2::read()
             if (header.start_bytes[1] == 0x58)
             {
                 MSPSerial->readBytes(&header.type, 6U);
-
+                Serial.println(header.payload_size);
                 event_flag = MSP2_WAIT_PACKET;
             }
+            else
+            {
+                Serial.printf("[F]: start_byte[1] = %d\n", header.start_bytes[1]);
+            }
+        }
+        else
+        {
+            Serial.printf("[F]: start_byte[0] = %d\n", header.start_bytes[0]);
         }
     }
 
@@ -41,7 +49,7 @@ uint16_t MSP2::read()
     Serial.printf(" Buffer %d bytes available ", MSPSerial->available());
     Serial.println();
 #endif
-
+    
     if (event_flag == MSP2_WAIT_PACKET && MSPSerial->available() >= (int)(header.payload_size) + 1)
     {
 #if MSP2_DEBUG_ENABLE
