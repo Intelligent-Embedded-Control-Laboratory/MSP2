@@ -19,13 +19,32 @@
 class MSP2
 {
 public:
-    void begin(HardwareSerial &_MSPSerial, uint32_t baud);
+    void begin(HardwareSerial& _MSPSerial, uint32_t baud);
     uint16_t read();
-    const msp_sensor_rangefinder_t &get_rangefinder() const { return rangefinder; }
-    const msp_sensor_optical_flow_t &get_optic_flow() const { return optical_flow; }
+    bool is_update_rangefinder() 
+    { 
+        if (_is_update_rangefinder)
+        {
+            _is_update_rangefinder = false;
+            return true;
+        }
+        return false;
+    }
+    bool is_update_optic_flow()
+    {
+        if (_is_update_optic_flow)
+        {
+            _is_update_optic_flow = false;
+            return true;
+        }
+        return false;
+    }
+    const msp_sensor_rangefinder_t& get_rangefinder() const { return rangefinder; }
+    const msp_sensor_optical_flow_t& get_optic_flow() const { return optical_flow; }
 
-// protected:
-    HardwareSerial *MSPSerial;
+protected:
+    bool _is_update_rangefinder, _is_update_optic_flow;
+    HardwareSerial* MSPSerial;
     int8_t event_flag;
     enum MSP2_STATUS
     {

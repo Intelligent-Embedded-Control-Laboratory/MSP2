@@ -52,6 +52,7 @@ uint16_t MSP2::read()
         switch (header.function)
         {
         case MSP2_SENSOR_RANGEFINDER:
+            _is_update_rangefinder = true;
             rangefinder.quality = (uint8_t)MSPSerial->read();
             MSPSerial->readBytes((uint8_t*)&rangefinder.distance_mm, header.payload_size - 1);
 #if MSP2_DEBUG_ENABLE
@@ -59,8 +60,9 @@ uint16_t MSP2::read()
 #endif
             break;
         case MSP2_SENSOR_OPTIC_FLOW:
+            _is_update_optic_flow = true;
             optical_flow.quality = (uint8_t)(MSPSerial->read());
-            MSPSerial->readBytes((uint8_t*)(&optical_flow.motionX), header.payload_size - 1);
+            MSPSerial->readBytes((uint8_t*)(&optical_flow.motionDX), header.payload_size - 1);
 #if MSP2_DEBUG_ENABLE
             Serial.println("OPTICAL FLOW!");
 #endif

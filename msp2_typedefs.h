@@ -22,6 +22,6 @@ typedef struct msp_sensor_rangefinder_t
 typedef struct msp_sensor_optical_flow_t
 {
     uint8_t quality; // [0 ~255]
-    int32_t motionX;
-    int32_t motionY;
+    int32_t motionDX;
+    int32_t motionDY;
 } msp_sensor_optical_flow_t;
